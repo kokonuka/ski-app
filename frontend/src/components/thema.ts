@@ -1,11 +1,13 @@
 import { extendTheme } from "@chakra-ui/react";
 import { Noto_Sans_JP } from 'next/font/google';
 
-const nextFont = Noto_Sans_JP({
-	weight: ["400", "500"],
-  subsets: ["latin"],
-  display: "swap",
-});
+const styles = {
+	global: {
+		body: {
+			color: "gray.700"
+		}
+	}
+}
 
 const colors = {
 	brand: {
@@ -15,10 +17,19 @@ const colors = {
 	},    
 };
 
-export const theme = extendTheme({ 
+const nextFont = Noto_Sans_JP({
+	weight: ["400", "500"],
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const fonts = {
+	body: nextFont.style.fontFamily,
+	heading: nextFont.style.fontFamily,
+}
+
+export const theme = extendTheme({
+	styles,
 	colors, 
-	fonts: {
-		body: nextFont.style.fontFamily,
-		heading: nextFont.style.fontFamily,
-	}
+	fonts
 });
