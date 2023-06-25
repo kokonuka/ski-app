@@ -11,9 +11,9 @@ import {
   Divider,
 } from "@chakra-ui/react";
 import { BsPersonFill, BsFillChatSquareDotsFill } from "react-icons/bs";
-import { LinkIconButton } from "../atoms/LinkIconButton";
-import { IconButton } from "../atoms/IconButton";
-import { AvatarProfile } from "../molecules/AvatarProfile";
+import { LinkIconButton } from "../../atoms/LinkIconButton";
+import { IconButton } from "../../atoms/IconButton";
+import { AvatarProfile } from "../../molecules/AvatarProfile";
 
 type Props = {};
 
