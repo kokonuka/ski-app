@@ -22,7 +22,7 @@ export const MenuAvatar: React.FC<Props> = () => {
         name="Dan Abrahmov"
       />
       <MenuList>
-        <MenuItem as="a" href="#">
+        <MenuItem as="a" href="/users/userId/profile">
           <AvatarProfile showName={true} />
         </MenuItem>
         <Box py="3" px="3" display="flex" justifyContent="center">
