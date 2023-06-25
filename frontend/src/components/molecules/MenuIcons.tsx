@@ -13,7 +13,7 @@ export const MenuIcons: React.FC<Props> = () => {
   return (
     <Box fontSize="xl" display="flex" alignItems="center" gap="7">
       <LinkIcon icon={<BsSearch />} href="#" />
-      <LinkIcon icon={<BsFillChatSquareDotsFill />} href="#" />
+      <LinkIcon icon={<BsFillChatSquareDotsFill />} href="/messages" />
       <LinkIcon icon={<BsFillBellFill />} href="#" />
     </Box>
   );
