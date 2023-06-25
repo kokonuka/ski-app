@@ -9,7 +9,7 @@ export const LinkButton: React.FC<Props> = ({ text }) => {
   return (
     <Button
       as="a"
-      href="#"
+      href="/users/userId/profile"
       w="100%"
       h="auto"
       py="2"
