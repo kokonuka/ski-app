@@ -1,5 +1,5 @@
 import React from "react";
-import { Header } from "../organisms/Header";
+import { Header } from "../organisms/header/Header";
 import { Footer } from "../organisms/Footer";
 import { Box, Container } from "@chakra-ui/react";
 import { ProfileHeader } from "../organisms/users/ProfileHeader";

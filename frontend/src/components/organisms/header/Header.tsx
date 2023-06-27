@@ -1,7 +1,6 @@
 import React from "react";
-import { Avatar, Box, Container } from "@chakra-ui/react";
-import { MenuIcons } from "../molecules/MenuIcons";
-import { MenuAvatar } from "./MenuAvatar";
+import { Box, Container } from "@chakra-ui/react";
+import { HeaderMenu } from "./HeaderMenu";
 
 type Props = {};
 
@@ -15,10 +14,7 @@ export const Header: React.FC<Props> = () => {
         justifyContent="space-between"
       >
         <a href="/">ロゴ</a>
-        <Box display="flex" justifyContent="space-between" gap="5">
-          <MenuIcons />
-          <MenuAvatar />
-        </Box>
+        <HeaderMenu />
       </Container>
     </Box>
   );

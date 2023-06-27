@@ -1,9 +1,9 @@
 import React from "react";
-import { Header } from "../organisms/Header";
+import { Header } from "../organisms/header/Header";
 import { Footer } from "../organisms/Footer";
 import { Box, Container, Heading } from "@chakra-ui/react";
 import { UserCardList } from "../organisms/home/UserCardList";
-import { SearchForm } from "../organisms/SearchForm";
+import { SearchForm } from "../organisms/header/SearchForm";
 
 export const TopLayout = () => {
   return (
