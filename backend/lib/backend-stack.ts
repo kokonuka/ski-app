@@ -1,16 +1,22 @@
-import * as cdk from 'aws-cdk-lib';
-import { Construct } from 'constructs';
-// import * as sqs from 'aws-cdk-lib/aws-sqs';
+import { Stack, StackProps, aws_s3 as s3, RemovalPolicy } from "aws-cdk-lib";
+import { Construct } from "constructs";
+import { Lambda } from "./construct/lambda";
+import { Api } from "./construct/api";
+import * as dotenv from "dotenv";
 
-export class BackendStack extends cdk.Stack {
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+dotenv.config();
+
+export class BackendStack extends Stack {
+  constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    // The code that defines your stack goes here
+    const bucket = new s3.Bucket(this, "SkiAppBucket", {
+      removalPolicy: RemovalPolicy.DESTROY,
+      autoDeleteObjects: true,
+    });
 
-    // example resource
-    // const queue = new sqs.Queue(this, 'BackendQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
+    const lambda = new Lambda(this, "Lambda", { bucket });
+
+    new Api(this, "Api", { lambda });
   }
 }
