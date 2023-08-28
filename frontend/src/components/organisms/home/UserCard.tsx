@@ -14,14 +14,17 @@ import { BsPersonFill, BsFillChatSquareDotsFill } from "react-icons/bs";
 import { LinkIconButton } from "../../atoms/LinkIconButton";
 import { IconButton } from "../../atoms/IconButton";
 import { AvatarProfile } from "../../molecules/AvatarProfile";
+import { User } from "@/types/user";
 
-type Props = {};
+type Props = {
+  user: User;
+};
 
-export const UserCard: React.FC<Props> = () => {
+export const UserCard: React.FC<Props> = ({ user }) => {
   return (
     <Card borderTop="8px" borderColor="cyan.500">
       <CardHeader>
-        <AvatarProfile showName={false} />
+        <AvatarProfile showName={false} user={user} />
       </CardHeader>
 
       <CardBody pt="5" pb="10">

@@ -1,11 +1,14 @@
 import React from "react";
 import { Box, Text } from "@chakra-ui/react";
+import { Message as MessageType } from "@/types/message";
 
 type Props = {
-  isPartner: boolean;
+  message: MessageType;
 };
 
-export const Message: React.FC<Props> = ({ isPartner }) => {
+export const Message: React.FC<Props> = ({ message }) => {
+  const isPartner = message.userId === "user-1" ? false : true;
+
   return (
     <>
       <Box display="flex" justifyContent={isPartner ? "" : "flex-end"}>
@@ -18,7 +21,7 @@ export const Message: React.FC<Props> = ({ isPartner }) => {
           fontSize="sm"
           borderRadius={isPartner ? "0 10px 10px 10px" : "10px 0 10px 10px"}
         >
-          メッセージ
+          {message.text}
         </Text>
       </Box>
       <Text
