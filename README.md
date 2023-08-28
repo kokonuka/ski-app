@@ -1,6 +1,8 @@
 # ski-app
 
-## backend
+## ディレクトリ構成
+
+### backend
 
 Serverless Framework + serverless-express で API を実装
 
@@ -9,7 +11,7 @@ $ npm run start
 $ npx sls package
 ```
 
-## frontend
+### frontend
 
 Next.js でフロントエンドを実装
 
@@ -17,19 +19,22 @@ Next.js でフロントエンドを実装
 $ npm run dev
 ```
 
-## infrastructure
+### infrastructure
 
 AWS CDK で AWS へソースコードのデプロイを行う
-・API Gateway
-・Lambda
-・DynamoDB
-・S3
-・CloudFront
+
+#### リソース
+
+- API Gateway
+- Lambda
+- DynamoDB
+- S3
+- CloudFront
 
 ```
 $ cdk deploy
 ```
 
-## openapi
+### openapi
 
 OpenAPI で API を定義
