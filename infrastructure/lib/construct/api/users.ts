@@ -26,8 +26,8 @@ export class Users extends Construct {
     const user = users.addResource("{id}");
     user.addMethod(
       "GET",
-      new apigateway.LambdaIntegration(props.userHandlers.getUser),
-      { authorizer: props.authorizer }
+      new apigateway.LambdaIntegration(props.userHandlers.getUser)
+      // { authorizer: props.authorizer }
     );
 
     /** POST users */

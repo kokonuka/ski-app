@@ -2,10 +2,12 @@ import {
   aws_lambda_nodejs as lambda_nodejs,
   aws_lambda as lambda,
   aws_s3 as s3,
+  aws_dynamodb as dynamodb,
 } from "aws-cdk-lib";
 import { Construct } from "constructs";
 
 export type UsersProps = {
+  dynamoTable: dynamodb.Table;
   bucket: s3.Bucket;
 };
 
@@ -16,6 +18,8 @@ export class Users extends Construct {
 
   constructor(scope: Construct, id: string, props: UsersProps) {
     super(scope, id);
+
+    const { dynamoTable, bucket } = props;
 
     const getUsers = new lambda_nodejs.NodejsFunction(this, "getUsers", {
       functionName: "getUsers",
@@ -35,10 +39,12 @@ export class Users extends Construct {
       handler: "handler",
       runtime: lambda.Runtime.NODEJS_18_X,
       environment: {
+        TABLE_NAME: props.bucket.bucketName,
         BUCKET_NAME: props.bucket.bucketName,
       },
     });
     this.getUser = getUser;
+    dynamoTable.grantReadData(getUser);
     props.bucket.grantReadWrite(getUser);
 
     const createUser = new lambda_nodejs.NodejsFunction(this, "createUser", {
